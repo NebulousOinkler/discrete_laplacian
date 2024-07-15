@@ -19,4 +19,5 @@ graph TD;
     C-->D;
     D-->E;
     E-->F;
+    D-->F;
 `{: .mermaid}
