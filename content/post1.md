@@ -6,10 +6,10 @@ mermaid: true
 
 ## Mathematical Equations
 
-This is inline math: \$E = mc^2\$.
+This is inline math: $E = mc^2$.
 
 This is display math:
-\$\$ \int_{a}^{b} x^2 \, dx \$\$
+$$ \int_{a}^{b} x^2 \, dx $$
 
 ## Diagrams
 
