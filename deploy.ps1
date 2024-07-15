@@ -5,7 +5,7 @@ $envPath = "C:\Users\Sharat\Sites\discrete_laplacian_env\Scripts\Activate.ps1"
 & $envPath
 
 # Path to the project directory
-$projectPath = "C:\Users\Sharat\Sites\discrete-laplacian-blog"
+$projectPath = "C:\Users\Sharat\Sites\discrete_laplacian"
 
 # Change to the project directory
 Set-Location $projectPath
