@@ -1,22 +1,5 @@
 {% extends "base.html" %}
 {% block title %}{{ super() }} : {{ article.title }}{% endblock %}
-{% block js_dependencies %}
-{% if article is defined %}
-        {% if 'mathjax' in article.metadata %}
-        <!-- MathJax -->
-        <script type="text/javascript" async
-            src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
-        </script>
-        {% endif %}
-        {% if 'mermaid' in article.metadata %}
-        <!-- Mermaid -->
-        <script type="module">
-            import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
-            mermaid.initialize({ startOnLoad: true });
-        </script>
-        {% endif %}
-        {% endif %}
-{% endblock %}
 {% block content %}        
 <header>
     <h1><a href="{{ SITEURL }}" id="site-title">{{ SITENAME }} {% if SITESUBTITLE %} <strong>{{ SITESUBTITLE }}</strong>{% endif %}</a> :
