@@ -13,9 +13,10 @@ $$ \int_{a}^{b} x^2 \, dx $$
 
 ## Diagrams
 
-```mermaid
+<pre class='mermaid'>
 graph TD;
     A-->B;
     A-->C;
     B-->D;
     C-->D;
+</pre>
