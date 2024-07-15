@@ -14,7 +14,7 @@ Set-Location $projectPath
 pelican content
 
 # Copy the CNAME file to the output directory
-Copy-Item -Path "CNAME" -Destination "output\CNAME"
+#Copy-Item -Path "CNAME" -Destination "output\CNAME"
 
 # Commit and push source files to the main branch
 git add .
