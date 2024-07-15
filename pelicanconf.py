@@ -3,10 +3,23 @@ SITENAME = 'The Discrete Laplacian'
 SITEURL = ""
 
 PATH = "content"
+STATIC_PATHS = [
+    'images',
+    'extra/CNAME',
+    'extra/favicon.ico'
+]
+EXTRA_PATH_METADATA = {
+    'extra/custom.css': {'path': 'custom.css'},
+    'extra/robots.txt': {'path': 'robots.txt'},
+    'extra/CNAME': {'path': 'CNAME'},
+    'extra/favicon.ico': {'path': 'favicon.ico'},
+    'extra/LICENSE': {'path': 'LICENSE'},
+    'extra/README': {'path': 'README'},
+}
 
 TIMEZONE = 'America/Los_Angeles'
 
-DEFAULT_LANG = 'English'
+DEFAULT_LANG = 'en'
 THEME = 'themes/Peli-Kiera'
 
 # Feed generation is usually not desired when developing
