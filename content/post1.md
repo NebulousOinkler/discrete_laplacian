@@ -1,8 +1,6 @@
 Title: My First Post
 Date: 2024-07-14
 Category: Blog
-mathjax: true
-mermaid: true
 
 ## Mathematical Equations
 
@@ -13,10 +11,11 @@ $$ \int_{a}^{b} x^2 \, dx $$
 
 ## Diagrams
 
-<pre class='mermaid'>
+`
 graph TD;
     A-->B;
     A-->C;
     B-->D;
     C-->D;
-</pre>
+    D-->E;
+`{: .mermaid}
