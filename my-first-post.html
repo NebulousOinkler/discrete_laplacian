@@ -3,18 +3,28 @@
 <head>
         <title>The Discrete Laplacian : My First Post</title>
         <meta charset="utf-8" />
-        <!-- MathJax -->
+        <link rel="stylesheet" href="/theme/css/main.css" type="text/css" />
+        <link href="/None" type="application/atom+xml" rel="alternate" title="The Discrete Laplacian ATOM Feed" />
+        <!-- MathJax-->
+        <script type="text/javascript" async>
+            window.MathJax = {
+                tex: {
+                    inlineMath: [['$', '$'], ['\\(', '\\)']],
+                    displayMath: [['$$', '$$'], ['\\[', '\\]']]
+                },
+                svg: {
+                    fontCache: 'global'
+                }
+            };
+        </script>
         <script type="text/javascript" async
-            src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+          src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
         </script>
         <!-- Mermaid -->
         <script type="module">
-            import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
-            mermaid.initialize({ startOnLoad: true });
+        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+        mermaid.initialize({ startOnLoad: true });
         </script>
-        <link rel="stylesheet" href="/theme/css/main.css" type="text/css" />
-        <link href="/None" type="application/atom+xml" rel="alternate" title="The Discrete Laplacian ATOM Feed" />
-
         <!--[if IE]>
                 <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
 
