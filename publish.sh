@@ -1,8 +1,8 @@
 #!/bin/bash
 
 # Activate the virtual environment
-source ../discrete_laplacian_env/Scripts/activate
-
+..\discrete_laplacian_env\Scripts\activate
+echo 'test'
 # Generate the static files
 pelican content
 
