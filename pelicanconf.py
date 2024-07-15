@@ -7,6 +7,7 @@ PATH = "content"
 TIMEZONE = 'America/Los_Angeles'
 
 DEFAULT_LANG = 'English'
+THEME = 'themes/notebook'
 
 # Feed generation is usually not desired when developing
 FEED_ALL_ATOM = None
