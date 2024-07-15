@@ -20,4 +20,4 @@ graph TD;
     D-->E;
     E-->F;
     D-->F;
-```{: class=mermaid}
+```{: .mermaid}
