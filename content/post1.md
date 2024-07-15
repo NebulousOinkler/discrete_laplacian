@@ -11,7 +11,7 @@ $$ \int_{a}^{b} x^2 \, dx $$
 
 ## Diagrams
 
-`
+```
 graph TD;
     A-->B;
     A-->C;
@@ -20,4 +20,4 @@ graph TD;
     D-->E;
     E-->F;
     D-->F;
-`{: .mermaid}
+```{: class=mermaid}

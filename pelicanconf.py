@@ -7,7 +7,7 @@ PATH = "content"
 TIMEZONE = 'America/Los_Angeles'
 
 DEFAULT_LANG = 'English'
-THEME = 'themes/elegant'
+THEME = 'themes/Peli-Kiera'
 
 # Feed generation is usually not desired when developing
 FEED_ALL_ATOM = None
@@ -21,19 +21,23 @@ LINKS = (
     ("Pelican", "https://getpelican.com/"),
     ("Python.org", "https://www.python.org/"),
     ("Jinja2", "https://palletsprojects.com/p/jinja/"),
-    ("You can modify those links in your config file", "#"),
 )
+
+GITHUB_URL = 'https://github.com/NebulousOinkler'
 
 # Social widget
 SOCIAL = (
-    ("You can add links in your config file", "#"),
-    ("Another social link", "#"),
+    ("mastodon", "#"),
+    ("linkedin", "#"),
 )
 
 DEFAULT_PAGINATION = 10
 
 # Uncomment following line if you want document-relative URLs when developing
 # RELATIVE_URLS = True
+PLUGIN_PATHS = ['pelican-plugins']
+PLUGINS = ['readtime', 'neighbors']
+
 MARKDOWN = {
     'extension_configs': {
         'markdown.extensions.extra': {},
