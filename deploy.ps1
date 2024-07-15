@@ -1,25 +1,25 @@
 # Path to the virtual environment
-$envPath = "C:\Users\Sharat\Sites\discrete_laplacian_env\Scripts\Activate.ps1"
+# $envPath = "C:\Users\Sharat\Sites\discrete_laplacian_env\Scripts\Activate.ps1"
 
-# Activate the virtual environment
-& $envPath
+# # Activate the virtual environment
+# & $envPath
 
-# Path to the project directory
-$projectPath = "C:\Users\Sharat\Sites\discrete_laplacian"
+# # Path to the project directory
+# $projectPath = "C:\Users\Sharat\Sites\discrete_laplacian"
 
-# Change to the project directory
-Set-Location $projectPath
+# # Change to the project directory
+# Set-Location $projectPath
 
 # Generate the static files
-pelican content
+# pelican content
 
 # Copy the CNAME file to the output directory
 #Copy-Item -Path "CNAME" -Destination "output\CNAME"
 
 # Commit and push source files to the main branch
-git add .
-git commit -m "Update site content"
-git push origin main
+# git add .
+# git commit -m "Update site content"
+# git push origin main
 
 # Deploy to GitHub Pages
 ghp-import output
