@@ -4,11 +4,6 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" type="text/css" href="/theme/css/elegant.prod.9e9d5ce754.css" media="screen">
-        <link rel="stylesheet" type="text/css" href="/theme/css/custom.css" media="screen">
-        <link rel="dns-prefetch" href="//fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
-
         <meta name="author" content="Sharat Chandra" />
 
         <meta property="og:type" content="article" />
@@ -19,12 +14,33 @@
 <meta property="og:url" content="" />
 <meta property="og:site_name" content="The Discrete Laplacian" />
 <meta property="og:article:author" content="Sharat Chandra" />
-<meta name="keywords" content=" Blog, " />
         <title>The Discrete Laplacian
 </title>
+        <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="/theme/css/elegant.prod.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="/theme/css/custom.css" media="screen">
 
 
-
+        <!-- MathJax-->
+        <script type="text/javascript" async>
+            window.MathJax = {
+                tex: {
+                    inlineMath: [['$', '$'], ['\\(', '\\)']],
+                    displayMath: [['$$', '$$'], ['\\[', '\\]']]
+                },
+                svg: {
+                    fontCache: 'global'
+                }
+            };
+        </script>
+        <script type="text/javascript" async
+          src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+        </script>
+        <!-- Mermaid -->
+        <script type="module">
+            import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+            mermaid.initialize({ startOnLoad: true });
+        </script>
     </head>
     <body>
         <div id="content">
@@ -78,7 +94,9 @@
                 <div class="recent-posts-posted">
                     posted in
                     <a href="/categories.html#blog-ref">Blog</a>
-                    <time itemprop="dateCreated" datetime="2024-07-14T00:00:00-07:00">Sun 14 July 2024</time>
+                    <div class="recent-posts-time">
+                        <time itemprop="dateCreated" datetime="2024-07-14T00:00:00-07:00">Sun 14 July 2024</time>
+                    </div>
                 </div>
             </div>
         </div>
@@ -101,7 +119,6 @@
     </div>
 </footer>        <script src="//code.jquery.com/jquery.min.js"></script>
         <script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
-        <script src="/theme/js/elegant.prod.9e9d5ce754.js"></script>
         <script>
             function validateForm(query)
             {
