@@ -4,11 +4,12 @@
         <meta charset="utf-8"/>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <title>The Discrete Laplacian - Archives</title>
+        <title>The Discrete Laplacian - My First Post - Test</title>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"/>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"/>
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Slab|Ruda"/>
         <link rel="stylesheet" type="text/css" href="/theme/css/main.css"/>
+
     <!-- MathJax-->
     <script type="text/javascript" async>
         window.MathJax = {
@@ -75,22 +76,55 @@
     </header>
     <nav>
         <ul>
-                    <li><a href="/category/blog.html"> Blog </a></li>
+                    <li><a                         class="active" href="/category/blog.html"> Blog </a></li>
         </ul>
     </nav>
-    <main>
-        <section id="list">
-            <h2>Archives for The Discrete Laplacian</h2>
+<main>
+    <article>
+        <h1>My First Post - Test</h1>
+        
+        <aside>
             <ul>
-                    <li><a href="/actual-first-post.html">Actual First Post</a>
-                        <time>Jul 2024</time>
-                    </li>
-                    <li><a href="/my-first-post-test.html">My First Post - Test</a>
-                        <time>Jul 2024</time>
-                    </li>
+                <li>
+                    <time datetime="2024-07-14 00:00:00-07:00">Jul 14, 2024</time>
+                </li>
+                <li>1 min read</li>
+                <li>
+                    Categories:
+                    <a href="/category/blog.html"><em>Blog</em></a>
+                </li>
+                </li>
             </ul>
-        </section>
-    </main>
+        </aside>
+        <h2 id="mathematical-equations">Mathematical Equations<a class="headerlink" href="#mathematical-equations" title="Permanent link">&para;</a></h2>
+<p>This is inline math: $E = mc^2$.</p>
+<p>This is display math:
+$$ \int_{a}^{b} x^2 \, dx $$</p>
+<h2 id="diagrams">Diagrams<a class="headerlink" href="#diagrams" title="Permanent link">&para;</a></h2>
+<p><code class="mermaid">graph TD;
+    A--&gt;B;
+    A--&gt;C;
+    B--&gt;D;
+    C--&gt;D;
+    D--&gt;E;
+    E--&gt;F;
+    D--&gt;F;</code></p>
+    </article>
+    <section class="post-nav">
+        <div id="left-page">
+            <div id="left-link">
+                <div id="left-arrow"><i class="fa fa-chevron-circle-left"></i></div>
+                <a href="/actual-first-post.html"> Actual First Post</a>
+            </div>
+        </div>
+        <div id="right-page">
+            <div id="right-link">
+            </div>
+        </div>
+    </section>
+    <div>
+    </div>
+</main>
     <footer>
         <h6>
             Rendered by <a href="http://getpelican.com/">Pelican</a> &nbsp;&bull;&nbsp; Theme by <a
