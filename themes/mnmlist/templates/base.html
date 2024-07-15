@@ -18,6 +18,7 @@
 
         <!--[if lt IE 7]>
                 <link rel="stylesheet" type="text/css" media="all" href="{{ SITEURL }}/css/ie6.css"/><![endif]-->
+        {% if article is defined %}
         {% if 'mathjax' in article.metadata %}
         <!-- MathJax -->
         <script type="text/javascript" async
@@ -30,6 +31,7 @@
             import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
             mermaid.initialize({ startOnLoad: true });
         </script>
+        {% endif %}
         {% endif %}
         <!-- Font Awesome -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
