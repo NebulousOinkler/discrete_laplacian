@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% block title %}{{ super() }} : {{ article.title }}{% endblock %}
-{% block js-dependencies %}
+{% block js_dependencies %}
 {% if article is defined %}
         {% if 'mathjax' in article.metadata %}
         <!-- MathJax -->
