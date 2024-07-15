@@ -122,15 +122,11 @@ pre {
 
 /* line 104, ../../compass/src/main.scss */
 pre.mermaid {
-  background-color: transparent;
-  padding: 0;
-  overflow: visible;
+  all: initial;
 }
 
 .mermaid {
-  background-color: #fafafa;
-  padding: 10px;
-  display: inline-block;
+  all: initial;
 }
 
 

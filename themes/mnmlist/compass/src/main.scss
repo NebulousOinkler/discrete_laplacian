@@ -103,16 +103,13 @@ pre {
 
 /* Optimize for Mermaid diagrams */
 pre.mermaid {
-    background-color: transparent;
-    padding: 0;
-    overflow: visible;
+    all: initial;
 }
 
 .mermaid {
-    background-color: #fafafa;
-    padding: 10px;
-    display: inline-block;
+    all: initial;
 }
+
 header {
     padding-bottom: 20px;
     a {
