@@ -1,6 +1,7 @@
 Title: My First Post - Test
 Date: 2024-07-14
 Category: Blog
+Status: draft
 
 ## Mathematical Equations
 
