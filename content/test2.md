@@ -2,7 +2,7 @@ Title: LLM Bullshit and a Theory of Mind
 Date: 2024-11-07
 Category: Blog
 Tags: LLM, AI
-Status: published
+Status: draft
 
 ## LLMs are Bullshit&trade;
-This is heading 1. 
+ref
