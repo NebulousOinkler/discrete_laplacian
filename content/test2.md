@@ -4,5 +4,5 @@ Category: Blog
 Tags: LLM, AI
 Status: published
 
-## LLMs are Bullshit$^{(TM)}$
+## LLMs are Bullshit:tm:
 This is heading 1. 
