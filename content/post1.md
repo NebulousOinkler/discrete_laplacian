@@ -3,6 +3,7 @@ Date: 2024-07-14
 Category: Blog
 Status: draft
 
+
 ## Mathematical Equations
 
 This is inline math: $E = mc^2$.
