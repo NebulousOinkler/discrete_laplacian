@@ -16,7 +16,7 @@ $$ P_{H_0}(E \geq 1/\alpha) \leq \alpha $$
 
 An **E-process** $(E_t)_{t=1}^{\infty}$ is a non-negative adapted process where each $E_t$ is an E-value with respect to the filtration $\mathcal{F}_t$. Formally:
 
-$$ \mathbb{E}_{H_0}[E_t | \mathcal{F}_{t-1}] \leq E_{t-1} $$
+\[ \mathbb{E}_{H_0}[E_t | \mathcal{F}_{t-1}] \leq E_{t-1} \]
 
 This makes $(E_t)$ a supermartingale under $H_0$, enabling anytime-valid inference.
 
