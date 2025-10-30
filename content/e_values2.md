@@ -228,7 +228,7 @@ $$ E_{\text{system}}^{(j)} = \prod_{i=1}^{n} E_t^{(i,j)} \cdot \mathbb{1}(\text{
 
 Detect which battery in series was replaced:
 
-$$ j^* = \arg\max_j \left\{E_t^{(j)} : E_t^{(j)} > \frac{1}{\alpha/n}\right\} $$
+$$ j^* = \arg\max_j \left{E_t^{(j)} : E_t^{(j)} > \frac{1}{\alpha/n}\right} $$
 
 using Bonferroni correction.
 
