@@ -1,6 +1,8 @@
-# Composition Rules for E-value Based Sequential Testing
-
-E-values provide elegant composition properties that make them particularly useful for combining multiple tests. Here are the key composition rules with their derivations:
+Title: Composition Rules for E-value Based Sequential Testing
+Date: 2024-10-29
+Category: blog
+Tags: Statistical Theory
+Status: published
 
 ## 1. Product Rule (Intersection of Nulls)
 
