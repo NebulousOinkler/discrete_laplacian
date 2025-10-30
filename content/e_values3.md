@@ -16,13 +16,13 @@ Define the battery state space $\mathcal{S} = \{H, D_1, D_2, \ldots, D_k, F_1, F
 
 The transition intensity matrix $Q$ for continuous-time monitoring:
 
-$$ Q = \begin{pmatrix}
+$$Q = \begin{pmatrix}
 -\lambda_H & \lambda_{HD_1} & \lambda_{HD_2} & \cdots & \lambda_{HF_1} & \cdots & \lambda_{HR} \\
 \mu_{D_1H} & -\lambda_{D_1} & \lambda_{D_1D_2} & \cdots & \lambda_{D_1F_1} & \cdots & \lambda_{D_1R} \\
 \vdots & \vdots & \vdots & \ddots & \vdots & \ddots & \vdots \\
 0 & 0 & 0 & \cdots & -\lambda_{F_j} & \cdots & 0 \\
 \mu_{RH} & \mu_{RD_1} & 0 & \cdots & 0 & \cdots & -\lambda_R
-\end{pmatrix} $$
+\end{pmatrix}$$
 
 where $\lambda_{ij}$ represents transition rate from state $i$ to $j$, and $\mu_{ij}$ represents recovery rates.
 
@@ -30,7 +30,7 @@ where $\lambda_{ij}$ represents transition rate from state $i$ to $j$, and $\mu_
 
 For state $s \in \mathcal{S}$, the observation process follows:
 
-$$ Y_t | X_t = s \sim \mathcal{N}(\mu_s(t), \Sigma_s(t)) $$
+$$Y_t \mid X_t = s \sim \mathcal{N}(\mu_s(t), \Sigma_s(t))$$
 
 where $Y_t = (V_t, I_t, T_t, Z_t, \text{SoC}_t)$ is the multivariate observation.
 
@@ -40,25 +40,25 @@ where $Y_t = (V_t, I_t, T_t, Z_t, \text{SoC}_t)$ is the multivariate observation
 
 For hypothesis testing between state trajectories, construct the likelihood ratio process:
 
-$$ M_t = \frac{dP^{(1)}}{dP^{(0)}}(Y_{0:t}) = \prod_{i=0}^{t} \frac{p^{(1)}(Y_i | Y_{0:i-1})}{p^{(0)}(Y_i | Y_{0:i-1})} $$
+$$M_t = \frac{dP^{(1)}}{dP^{(0)}}(Y_{0:t}) = \prod_{i=0}^{t} \frac{p^{(1)}(Y_i \mid Y_{0:i-1})}{p^{(0)}(Y_i \mid Y_{0:i-1})}$$
 
-Under $P^{(0)}$, this forms a martingale with $\mathbb{E}_{P^{(0)}}[M_t | \mathcal{F}_{t-1}] = M_{t-1}$.
+Under $P^{(0)}$, this forms a martingale with $\mathbb{E}_{P^{(0)}}[M_t \mid \mathcal{F}_{t-1}] = M_{t-1}$.
 
 ### State-Specific Martingales
 
 For each state $s \in \mathcal{S}$, define the state likelihood martingale:
 
-$$ M_t^{(s)} = \frac{P(Y_{0:t} | X_t = s)}{P(Y_{0:t} | X_0 = H)} \cdot \frac{P(X_t = s)}{P(X_0 = H)} $$
+$$M_t^{(s)} = \frac{P(Y_{0:t} \mid X_t = s)}{P(Y_{0:t} \mid X_0 = H)} \cdot \frac{P(X_t = s)}{P(X_0 = H)}$$
 
 The posterior probability process:
 
-$$ \pi_t^{(s)} = P(X_t = s | Y_{0:t}) = \frac{M_t^{(s)}}{\sum_{s' \in \mathcal{S}} M_t^{(s')}} $$
+$$\pi_t^{(s)} = P(X_t = s \mid Y_{0:t}) = \frac{M_t^{(s)}}{\sum_{s' \in \mathcal{S}} M_t^{(s')}}$$
 
 ### Compensated Counting Process Martingale
 
 For transitions between states, define counting processes $N_{ij}(t)$ for transitions from state $i$ to $j$:
 
-$$ M_{ij}(t) = N_{ij}(t) - \int_0^t \lambda_{ij}(u) \cdot \mathbb{1}(X_u = i) \, du $$
+$$M_{ij}(t) = N_{ij}(t) - \int_0^t \lambda_{ij}(u) \cdot \mathbb{1}(X_u = i) \, du$$
 
 This compensated process is a martingale under the true model.
 
@@ -68,12 +68,12 @@ This compensated process is a martingale under the true model.
 
 Define a health score function $h: \mathcal{S} \rightarrow [0, 1]$:
 
-$$ h(s) = \begin{cases}
+$$h(s) = \begin{cases}
 1 & s = H \\
 0.7 + 0.3e^{-\kappa_i} & s = D_i \\
 0.9 & s = R \\
 \delta_j & s = F_j
-\end{cases} $$
+\end{cases}$$
 
 where $\kappa_i$ is degradation severity and $\delta_j \ll 1$ for failure states.
 
@@ -81,17 +81,17 @@ where $\kappa_i$ is degradation severity and $\delta_j \ll 1$ for failure states
 
 Construct a martingale that captures improvement in health:
 
-$$ M_t^{\text{recovery}} = h(X_t) - h(X_0) - \int_0^t \mathcal{L}h(X_s) \, ds $$
+$$M_t^{\text{recovery}} = h(X_t) - h(X_0) - \int_0^t \mathcal{L}h(X_s) \, ds$$
 
 where $\mathcal{L}$ is the infinitesimal generator:
 
-$$ \mathcal{L}h(s) = \sum_{s' \neq s} q_{ss'}(h(s') - h(s)) $$
+$$\mathcal{L}h(s) = \sum_{s' \neq s} q_{ss'}(h(s') - h(s))$$
 
 ### Cumulative Recovery E-Process
 
 Define the recovery E-process:
 
-$$ E_t^{\text{rec}} = \exp\left(\int_0^t \lambda_{\text{rec}}(s) \, dM_s^{\text{recovery}} - \frac{1}{2}\int_0^t \lambda_{\text{rec}}^2(s) \, d\langle M^{\text{recovery}} \rangle_s\right) $$
+$$E_t^{\text{rec}} = \exp\left(\int_0^t \lambda_{\text{rec}}(s) \, dM_s^{\text{recovery}} - \frac{1}{2}\int_0^t \lambda_{\text{rec}}^2(s) \, d\langle M^{\text{recovery}} \rangle_s\right)$$
 
 This detects statistically significant health improvements.
 
@@ -102,26 +102,26 @@ This detects statistically significant health improvements.
 Each failure mode $F_j$ has characteristic signature:
 
 1. **Capacity Fade** ($F_1$):
-   $$ \mu_{F_1} = (\bar{V} - \alpha t, \bar{I}, \bar{T}, Z_0 e^{\beta t}, \text{SoC}_{\max} \cdot (1 - \gamma t)) $$
+   $$\mu_{F_1} = (\bar{V} - \alpha t, \bar{I}, \bar{T}, Z_0 e^{\beta t}, \text{SoC}_{\max} \cdot (1 - \gamma t))$$
 
 2. **Internal Short** ($F_2$):
-   $$ \mu_{F_2} = (\bar{V} - \Delta V_{\text{short}}, I_{\text{leak}}, T_{\text{elevated}}, Z_{\text{low}}, \text{SoC}_{\text{unstable}}) $$
+   $$\mu_{F_2} = (\bar{V} - \Delta V_{\text{short}}, I_{\text{leak}}, T_{\text{elevated}}, Z_{\text{low}}, \text{SoC}_{\text{unstable}})$$
 
 3. **Thermal Runaway Risk** ($F_3$):
-   $$ \mu_{F_3} = (\bar{V}, \bar{I}, T_{\text{high}} + \eta(t), Z_{\text{varying}}, \text{SoC}_{\text{normal}}) $$
+   $$\mu_{F_3} = (\bar{V}, \bar{I}, T_{\text{high}} + \eta(t), Z_{\text{varying}}, \text{SoC}_{\text{normal}})$$
 
 4. **Dendrite Formation** ($F_4$):
-   $$ \mu_{F_4} = (V_{\text{spiky}}(t), I_{\text{irregular}}, \bar{T}, Z_{\text{oscillating}}(t), \text{SoC}_{\text{normal}}) $$
+   $$\mu_{F_4} = (V_{\text{spiky}}(t), I_{\text{irregular}}, \bar{T}, Z_{\text{oscillating}}(t), \text{SoC}_{\text{normal}})$$
 
 ### Competing Risk Martingales
 
 For simultaneous detection of multiple failure modes:
 
-$$ M_t^{(F_j)} = \exp\left(\sum_{i=1}^{n} \log\frac{f_{F_j}(Y_{t_i} | \mathcal{F}_{t_{i-1}})}{f_H(Y_{t_i} | \mathcal{F}_{t_{i-1}})}\right) $$
+$$M_t^{(F_j)} = \exp\left(\sum_{i=1}^{n} \log\frac{f_{F_j}(Y_{t_i} \mid \mathcal{F}_{t_{i-1}})}{f_H(Y_{t_i} \mid \mathcal{F}_{t_{i-1}})}\right)$$
 
 The first failure detected:
 
-$$ \hat{F} = \arg\max_{j} \{M_t^{(F_j)} : M_t^{(F_j)} > \tau_j\} $$
+$$\hat{F} = \arg\max_{j} \{M_t^{(F_j)} : M_t^{(F_j)} > \tau_j\}$$
 
 where $\tau_j$ are mode-specific thresholds.
 
@@ -131,13 +131,13 @@ where $\tau_j$ are mode-specific thresholds.
 
 Incorporate state duration dependencies:
 
-$$ P(X_{t+\Delta t} = j | X_t = i, S_i = s) = q_{ij}(s) \Delta t + o(\Delta t) $$
+$$P(X_{t+\Delta t} = j \mid X_t = i, S_i = s) = q_{ij}(s) \Delta t + o(\Delta t)$$
 
 where $S_i$ is sojourn time in state $i$ and $q_{ij}(s)$ is duration-dependent transition rate.
 
 ### Sojourn-Adjusted Martingale
 
-$$ M_t^{\text{semi}} = \prod_{k=1}^{N(t)} \frac{f_{X_k}(S_k)}{g_{X_k}(S_k)} \cdot \prod_{k=0}^{N(t)} \frac{p_{X_k X_{k+1}}}{q_{X_k X_{k+1}}} $$
+$$M_t^{\text{semi}} = \prod_{k=1}^{N(t)} \frac{f_{X_k}(S_k)}{g_{X_k}(S_k)} \cdot \prod_{k=0}^{N(t)} \frac{p_{X_k X_{k+1}}}{q_{X_k X_{k+1}}}$$
 
 where $f$ and $g$ are sojourn distributions under alternative and null hypotheses.
 
@@ -147,21 +147,21 @@ where $f$ and $g$ are sojourn distributions under alternative and null hypothese
 
 The forward filtering process:
 
-$$ \alpha_t(s) = P(X_t = s | Y_{1:t}) = \frac{P(Y_t | X_t = s) \sum_{s'} P(X_t = s | X_{t-1} = s') \alpha_{t-1}(s')}{P(Y_t | Y_{1:t-1})} $$
+$$\alpha_t(s) = P(X_t = s \mid Y_{1:t}) = \frac{P(Y_t \mid X_t = s) \sum_{s'} P(X_t = s \mid X_{t-1} = s') \alpha_{t-1}(s')}{P(Y_t \mid Y_{1:t-1})}$$
 
 Define the prediction error martingale:
 
-$$ M_t^{\text{pred}} = Y_t - \mathbb{E}[Y_t | Y_{1:t-1}] = Y_t - \sum_{s \in \mathcal{S}} \mu_s \cdot P(X_t = s | Y_{1:t-1}) $$
+$$M_t^{\text{pred}} = Y_t - \mathbb{E}[Y_t \mid Y_{1:t-1}] = Y_t - \sum_{s \in \mathcal{S}} \mu_s \cdot P(X_t = s \mid Y_{1:t-1})$$
 
 ### Viterbi-Based Martingale
 
 For most likely path detection:
 
-$$ V_t(s) = \max_{x_{0:t-1}} P(X_{0:t-1} = x_{0:t-1}, X_t = s, Y_{1:t}) $$
+$$V_t(s) = \max_{x_{0:t-1}} P(X_{0:t-1} = x_{0:t-1}, X_t = s, Y_{1:t})$$
 
 The path probability martingale:
 
-$$ M_t^{\text{path}} = \frac{\max_s V_t(s)}{P(Y_{1:t})} $$
+$$M_t^{\text{path}} = \frac{\max_s V_t(s)}{P(Y_{1:t})}$$
 
 ## Adaptive Learning and Online Updates
 
@@ -169,7 +169,7 @@ $$ M_t^{\text{path}} = \frac{\max_s V_t(s)}{P(Y_{1:t})} $$
 
 For unknown transition rates, use the EM algorithm score process:
 
-$$ S_t(\theta) = \sum_{i=1}^{t} \left(\nabla_\theta \log p_\theta(Y_i | Y_{1:i-1}) - \mathbb{E}_\theta[\nabla_\theta \log p_\theta(Y_i | Y_{1:i-1})]\right) $$
+$$S_t(\theta) = \sum_{i=1}^{t} \left(\nabla_\theta \log p_\theta(Y_i \mid Y_{1:i-1}) - \mathbb{E}_\theta[\nabla_\theta \log p_\theta(Y_i \mid Y_{1:i-1})]\right)$$
 
 This score process is a martingale under true parameter $\theta_0$.
 
@@ -177,17 +177,17 @@ This score process is a martingale under true parameter $\theta_0$.
 
 Update transition rates using martingale estimators:
 
-$$ \hat{\lambda}_{ij}(t) = \frac{N_{ij}(t)}{\int_0^t \mathbb{1}(X_s = i) \, ds} $$
+$$\hat{\lambda}_{ij}(t) = \frac{N_{ij}(t)}{\int_0^t \mathbb{1}(X_s = i) \, ds}$$
 
 with confidence bounds from martingale CLT:
 
-$$ \sqrt{t}(\hat{\lambda}_{ij}(t) - \lambda_{ij}) \xrightarrow{d} \mathcal{N}(0, \lambda_{ij}) $$
+$$\sqrt{t}(\hat{\lambda}_{ij}(t) - \lambda_{ij}) \xrightarrow{d} \mathcal{N}(0, \lambda_{ij})$$
 
 ## Practical Implementation Algorithms
 
 ### Algorithm 1: Multi-State Health Monitoring
 
-```
+```python
 class MultiStateBatteryMonitor:
     def __init__(self, states, transition_matrix, observation_models):
         self.states = states  # [H, D1, D2, F1, F2, R]
@@ -229,7 +229,7 @@ class MultiStateBatteryMonitor:
 
 ### Algorithm 2: Recovery Detection with E-Process
 
-```
+```python
 class RecoveryDetector:
     def __init__(self, health_score_func, significance_level=0.05):
         self.h = health_score_func
@@ -269,7 +269,7 @@ class RecoveryDetector:
 
 ### Algorithm 3: Competing Failure Modes
 
-```
+```python
 class CompetingFailureDetector:
     def __init__(self, failure_models):
         self.failure_models = failure_models
@@ -308,23 +308,23 @@ class CompetingFailureDetector:
 
 Define the value function for maintenance decision:
 
-$$ V_t = \sup_{\tau \geq t} \mathbb{E}\left[\int_t^\tau r(X_s) \, ds - c(\tau, X_\tau) \Big| \mathcal{F}_t\right] $$
+$$V_t = \sup_{\tau \geq t} \mathbb{E}\left[\int_t^\tau r(X_s) \, ds - c(\tau, X_\tau) \Big| \mathcal{F}_t\right]$$
 
 where $r(s)$ is reward rate in state $s$ and $c(\tau, s)$ is maintenance cost.
 
 The martingale:
 
-$$ M_t^V = V_t - V_0 - \int_0^t \mathcal{L}V(X_s) \, ds $$
+$$M_t^V = V_t - V_0 - \int_0^t \mathcal{L}V(X_s) \, ds$$
 
 ### Optimal Maintenance Trigger
 
 Maintenance is triggered when:
 
-$$ M_t^{\text{maint}} = \frac{P(X_t \in \{D_i\} \cup \{F_j\})}{P(X_t = H)} > \tau^* $$
+$$M_t^{\text{maint}} = \frac{P(X_t \in \{D_i\} \cup \{F_j\})}{P(X_t = H)} > \tau^*$$
 
 where $\tau^*$ solves:
 
-$$ \tau^* = \arg\min_\tau \left\{c_{\text{prev}} \cdot P(\tau < T_{\text{failure}}) + c_{\text{fail}} \cdot P(\tau \geq T_{\text{failure}})\right\} $$
+$$\tau^* = \arg\min_\tau \left\{c_{\text{prev}} \cdot P(\tau < T_{\text{failure}}) + c_{\text{fail}} \cdot P(\tau \geq T_{\text{failure}})\right\}$$
 
 ## Continuous Learning Framework
 
@@ -332,11 +332,11 @@ $$ \tau^* = \arg\min_\tau \left\{c_{\text{prev}} \cdot P(\tau < T_{\text{failure
 
 Incorporate prior knowledge via conjugate priors:
 
-$$ \pi_t(\theta) \propto \pi_0(\theta) \cdot \exp\left(\int_0^t \log p_\theta(dY_s | \mathcal{F}_{s-})\right) $$
+$$\pi_t(\theta) \propto \pi_0(\theta) \cdot \exp\left(\int_0^t \log p_\theta(dY_s \mid \mathcal{F}_{s-})\right)$$
 
 The posterior mean process:
 
-$$ \hat{\theta}_t = \mathbb{E}_{\pi_t}[\theta] $$
+$$\hat{\theta}_t = \mathbb{E}_{\pi_t}[\theta]$$
 
 forms a martingale under the prior predictive distribution.
 
@@ -344,11 +344,11 @@ forms a martingale under the prior predictive distribution.
 
 Use martingale differences for policy gradient:
 
-$$ \nabla J(\theta) = \mathbb{E}\left[\sum_{t=0}^{T} M_t^{\text{reward}} \cdot \nabla \log \pi_\theta(a_t | s_t)\right] $$
+$$\nabla J(\theta) = \mathbb{E}\left[\sum_{t=0}^{T} M_t^{\text{reward}} \cdot \nabla \log \pi_\theta(a_t \mid s_t)\right]$$
 
 where:
 
-$$ M_t^{\text{reward}} = R_t - \mathbb{E}[R_t | \mathcal{F}_{t-1}] $$
+$$M_t^{\text{reward}} = R_t - \mathbb{E}[R_t \mid \mathcal{F}_{t-1}]$$
 
 ## Validation and Performance Metrics
 
@@ -356,7 +356,7 @@ $$ M_t^{\text{reward}} = R_t - \mathbb{E}[R_t | \mathcal{F}_{t-1}] $$
 
 Test martingale property via residuals:
 
-$$ R_t = \frac{M_t - M_{t-1}}{\sqrt{\langle M \rangle_t - \langle M \rangle_{t-1}}} $$
+$$R_t = \frac{M_t - M_{t-1}}{\sqrt{\langle M \rangle_t - \langle M \rangle_{t-1}}}$$
 
 Under correct model, $R_t \sim \mathcal{N}(0, 1)$ independently.
 
@@ -364,12 +364,12 @@ Under correct model, $R_t \sim \mathcal{N}(0, 1)$ independently.
 
 Evaluate state estimation accuracy:
 
-$$ H(P || \hat{P}) = -\sum_{s \in \mathcal{S}} P(X_t = s) \log \hat{P}(X_t = s | Y_{1:t}) $$
+$$H(P \| \hat{P}) = -\sum_{s \in \mathcal{S}} P(X_t = s) \log \hat{P}(X_t = s \mid Y_{1:t})$$
 
 ### Recovery Detection Performance
 
-- **Sensitivity**: $P(\text{detect recovery} | \text{true recovery})$
-- **Specificity**: $P(\text{no detection} | \text{no recovery})$
+- **Sensitivity**: $P(\text{detect recovery} \mid \text{true recovery})$
+- **Specificity**: $P(\text{no detection} \mid \text{no recovery})$
 - **Time to detection**: $\mathbb{E}[\tau_{\text{detect}} - \tau_{\text{recovery}}]$
 
 ## Case Study: EV Battery Pack with Cell Balancing
@@ -378,13 +378,13 @@ $$ H(P || \hat{P}) = -\sum_{s \in \mathcal{S}} P(X_t = s) \log \hat{P}(X_t = s |
 
 For $n$ cells in series:
 
-$$ \mathcal{S} = \{H, D_{\text{imbalance}}, D_{\text{weak}}, F_{\text{open}}, F_{\text{short}}, R_{\text{balanced}}\} $$
+$$\mathcal{S} = \{H, D_{\text{imbalance}}, D_{\text{weak}}, F_{\text{open}}, F_{\text{short}}, R_{\text{balanced}}\}$$
 
 ### Cell Balancing as Recovery Mechanism
 
 Balancing triggers transition $D_{\text{imbalance}} \rightarrow R_{\text{balanced}} \rightarrow H$:
 
-$$ P(R_{\text{balanced}} \rightarrow H) = 1 - \exp(-\mu_{\text{balance}} \cdot t_{\text{balance}}) $$
+$$P(R_{\text{balanced}} \rightarrow H) = 1 - \exp(-\mu_{\text{balance}} \cdot t_{\text{balance}})$$
 
 ### Multi-Level Martingales
 
@@ -400,11 +400,11 @@ Hierarchical monitoring:
 
 For non-linear dynamics:
 
-$$ X_{t+1} = f(X_t, W_t), \quad Y_t = g(X_t, V_t) $$
+$$X_{t+1} = f(X_t, W_t), \quad Y_t = g(X_t, V_t)$$
 
 Use particle filter martingales:
 
-$$ M_t^{\text{PF}} = \frac{1}{N} \sum_{i=1}^{N} w_t^{(i)} $$
+$$M_t^{\text{PF}} = \frac{1}{N} \sum_{i=1}^{N} w_t^{(i)}$$
 
 where $w_t^{(i)}$ are importance weights.
 
@@ -412,19 +412,9 @@ where $w_t^{(i)}$ are importance weights.
 
 Neural network state classifier with martingale regularization:
 
-$$ \mathcal{L} = \mathcal{L}_{\text{CE}} + \lambda \cdot \mathbb{E}\left[(M_{t+1} - M_t)^2 | \mathcal{F}_t\right] $$
+$$\mathcal{L} = \mathcal{L}_{\text{CE}} + \lambda \cdot \mathbb{E}\left[(M_{t+1} - M_t)^2 \mid \mathcal{F}_t\right]$$
 
 This ensures learned representations maintain martingale property.
-
-### Quantum Battery States
-
-For quantum batteries with superposition states:
-
-$$ |\psi\rangle = \sum_{s \in \mathcal{S}} \alpha_s |s\rangle $$
-
-The measurement process creates quantum martingales:
-
-$$ M_t^Q = \langle \psi_t | \hat{M} | \psi_t \rangle $$
 
 ## Conclusion
 
