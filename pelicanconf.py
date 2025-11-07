@@ -41,7 +41,7 @@ GITHUB_URL = 'https://github.com/NebulousOinkler'
 # Social widget
 SOCIAL = (
     ("mastodon", "#"),
-    ("linkedin", "https://www.linkedin.com/sharatc"),
+    ("linkedin", "https://www.linkedin.com/in/sharatc"),
 )
 
 DEFAULT_PAGINATION = 10
