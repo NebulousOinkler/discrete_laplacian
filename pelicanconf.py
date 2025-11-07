@@ -1,6 +1,6 @@
 AUTHOR = 'Sharat Chandra'
 SITENAME = 'The Discrete Laplacian'
-SITEURL = "sharatchandra.com"
+SITEURL = "https://www.sharatchandra.com"
 
 PATH = "content"
 STATIC_PATHS = [
@@ -41,7 +41,7 @@ GITHUB_URL = 'https://github.com/NebulousOinkler'
 # Social widget
 SOCIAL = (
     ("mastodon", "#"),
-    ("linkedin", "linkedin.com/sharatc"),
+    ("linkedin", "https://www.linkedin.com/sharatc"),
 )
 
 DEFAULT_PAGINATION = 10
