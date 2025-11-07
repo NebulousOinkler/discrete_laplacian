@@ -1,10 +1,8 @@
-Title: Resume
-
-## Sharat Chandra
+Title: Sharat Chandra
 
 ### Data Scientist
 
-[Fresno, CA]() [+1 (559) 246-7830](tel:+15592467830)  [sharatc.is.me@gmail.com](mailto:sharatc.is.me@gmail.com)   [linkedin.com/in/sharatc/](https://www.linkedin.com/in/sharatc/)   
+[Fresno, CA]()  [sharatc.is.me@gmail.com](mailto:sharatc.is.me@gmail.com)   [linkedin.com/in/sharatc/](https://www.linkedin.com/in/sharatc/)   
 
 Senior Data Scientist with 6+ years experience building and interpreting complex predictive data models, open to Data Science, Software Engineering, and Privacy/T&S roles
 
