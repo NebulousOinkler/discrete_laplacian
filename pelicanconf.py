@@ -1,5 +1,5 @@
 AUTHOR = 'Sharat Chandra'
-SITENAME = 'The Discrete Laplacian'
+SITENAME = 'sharat.chandra'
 SITEURL = "https://www.sharatchandra.com"
 
 PATH = "content"
