@@ -15,7 +15,7 @@ In what I am reluctantly coming to understand as the age of AI, I have started n
 
 While digging through an antique store over this past weekend, I found an old, worn copy of Laird and Lee's Websters Dictionary published around 1922 and I decided I would go back to an exercise I was forced to do in my college days - which I thought then was a stupid waste of time; I will pick a random page, find a word I don't know, write the definition, and then write a sentence using the word.
 
-I plan to continue to do this exercise regularly before every blog post. I also plan to writing more blog posts and not being to precious about them. I have a decent number of blog posts that I have delisted because I simply didn't like them much. I hope that writing more by hand, without a real purpose, will be the antidote to my frustrations with the AI psychosis that seems so ubiquitous these days.
+I plan to continue to do this exercise regularly before every blog post. I also plan to writing more blog posts and not being too precious about them. I have a decent number of blog posts that I have delisted because I simply didn't like them much. I hope that writing more by hand, without a real purpose, will be the antidote to my frustrations with the AI psychosis that seems so ubiquitous these days.
 
 ## A Little Town Newspaper
 
