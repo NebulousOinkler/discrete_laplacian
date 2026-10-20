@@ -2,7 +2,7 @@ Title: Martingale Construction for Multi-State Battery Health Monitoring with Re
 Date: 2024-10-30
 Category: blog
 Tags: Statistical Theory, BHM
-Status: published
+Status: draft
 
 ## Multi-State Battery Health Model
 

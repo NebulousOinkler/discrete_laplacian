@@ -2,7 +2,7 @@ Title: Sequential Testing for Battery Replacement Detection via Remote Telemetry
 Date: 2024-10-30
 Category: blog
 Tags: Statistical Theory, BHM
-Status: published
+Status: draft
 
 ## Problem Formulation: Battery Replacement as a Change-Point Problem
 
