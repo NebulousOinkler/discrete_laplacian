@@ -2,7 +2,7 @@ Title: AI Can Do Math Now
 Date: 2026-10-21
 Category: blog
 Tags: dictionary, daily, AI
-Status: draft
+Status: published
 
 ### Dictionary Day
 **procrustean** (prō-krus'te-an) *a.* Obtaining conformity by violence [From *Procrustes*, a fabled Greek giant, who fitted the bodies of his victims to a bed by stretching them or cutting off their feet]
